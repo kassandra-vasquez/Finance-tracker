@@ -30,7 +30,7 @@ class CSV:
         print("Entry added successfully!")
 
     @classmethod
-    def get_transaction(cls, start_date, end_date):
+    def get_transactions(cls, start_date, end_date):
         df = pd.read_csv(cls.CSV_FILE)
         df["date"] = pd.to_datetime(df["date"], format=CSV.FORMAT)
         start_date = datetime.strptime(start_date, CSV.FORMAT)
@@ -60,4 +60,5 @@ def add():
     description = get_description()
     CSV.add_entry(date, amount, category, description)
 
+CSV.get_transactions("14-07-2024", "14-07-2024")
 add()
