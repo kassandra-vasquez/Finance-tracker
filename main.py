@@ -22,9 +22,10 @@ class CSV:
             "category": category,
             "description": description
         }
-        with open(cls.CSV_FILE, "a", newLine="") as csvfile:
+        with open(cls.CSV_FILE, "a", newline="") as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=cls.COLUMNS)
             writer.writerow(new_entry)
         print("Entry added successfully!")
 
 CSV.initialize_csv()
+CSV.add_entry("14-07-2024", 145.55, "Income", "Salary")
